@@ -1,2 +1,3 @@
 # CV-template
  
+This CV is created from a~\href{https://web.archive.org/web/20180727051638/http://www.derekhildreth.com/portfolio/Resume/Derek_Hildreth_Resume.tex}{\LaTeX~template} by \href{https://web.archive.org/web/20180727051638/http://www.thelinuxdaily.com/2008/10/latex-resume-examples/}{M. Boedicker}, modified by \href{http://www.derekhildreth.com}{D.~Hildreth} and \href{https://github.com/kpoinar}{K.~Poinar} under the Creative Commons Attribution -- NonCommercial -- ShareAlike (CC~BY-NC-SA) License.
