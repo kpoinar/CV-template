@@ -1,0 +1,530 @@
+% resume.tex
+%
+% (c) 2002 Matthew Boedicker <mboedick@mboedick.org> (original author) http://mboedick.org
+% (c) 2003 David J. Grant <dgrant@ieee.org> http://www.davidgrant.ca
+% (c) 2007 Todd C. Miller <Todd.Miller@courtesan.com> http://www.courtesan.com/todd
+% (c) 2009 Derek R. Hildreth <derek@derekhildreth.com> http://www.derekhildreth.com 
+%This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/1.0/ or send a letter to Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
+
+% GENERAL NOTE:  There may be some notes specific to myself.  If you're only interested in my LaTeX source or it doesn't make sense, please disregard it.
+
+\documentclass[letterpaper,11pt]{article}
+
+%-----------------------------------------------------------
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim,tikz}
+\usepackage[pdftex]{hyperref}
+\usepackage{multicol}
+\usepackage{array}
+\hypersetup{
+    colorlinks,%
+    citecolor=black,%
+    filecolor=black,%
+    linkcolor=black,%
+    urlcolor=myblue    % can put red here to visualize the links
+}
+\urlstyle{same}
+\definecolor{mygrey}{gray}{.85}
+%\definecolor{myvio}{HTML}{7608AA}
+\definecolor{myblue}{HTML}{4169E1}
+\textheight=9.0in
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.375in}
+\addtolength{\evensidemargin}{0.375in}
+\addtolength{\textwidth}{0.5in}
+\addtolength{\topmargin}{-.375in}
+%\addtolength{\textheight}{0.75in}
+
+% Remove indentation on second line of description items
+\makeatletter
+\renewenvironment{description}%
+               {\list{}{\leftmargin=5pt % <------- Adjusted down from default 10pt 
+                        \labelwidth\z@ \itemindent-\leftmargin
+                        \let\makelabel\descriptionlabel}}%
+               {\endlist}
+\makeatother
+
+%-----------------------------------------------------------
+%Custom commands
+\newcommand{\resitem}[1]{\item #1 \vspace{2pt}} % was -2pt
+\newcommand{\resheading}[1]{{\large \colorbox{mygrey}{\begin{minipage}{\textwidth}{\textbf{#1 \vphantom{p\^{E}}}}\end{minipage}}}}
+\newcommand{\ressubheading}[4]{
+\begin{tabular*}{6.90in}{l@{\extracolsep{\fill}}r}
+		\textbf{#1} & #2 \\
+		\textit{#3} & \textit{#4} \\
+\end{tabular*}\vspace{-2pt}} % was -2pt
+
+\newcommand{\ressubheadingsmall}[4]{
+\begin{tabular*}{6.90in}{l l@{\extracolsep{\fill}}r}
+		\hspace{0.5in} & \textbf{#1} & #2 \\
+		\hspace{0.5in} & \footnotesize{#3} & \textit{#4} \\ 
+\end{tabular*}\vspace{1pt}}
+%-----------------------------------------------------------
+
+
+%% Use fancyhdr and lastpage packages to customize the
+%% header and footer of each page
+\usepackage{fancyhdr, lastpage}
+\pagestyle{fancy}%{plain}
+\fancyhf{} % clear it out
+\footskip = 30pt
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.1pt}
+%\pagenumbering{arabic}
+\lfoot{\textit{Page \thepage{} of \protect\pageref*{LastPage}}}
+\cfoot{}
+\rfoot{\textit{Updated \today}}
+
+%-----------------------------------------------------------
+%General Resume Tips
+%   No periods!  Technically, nothing in this document is a full sentence.
+%   Use parallelism by ending key words with the same thing,  i.e. "Coordinated; Designed; Communicated".
+%   More tips on bottom of this LaTeX document.
+%-----------------------------------------------------------
+
+\begin{document}
+
+\newcommand{\mywebheader}{
+\begin{tabular*}{6.90in}{l@{\extracolsep{\fill}}r}
+	\textbf{\LARGE My Name}  & \textbf{My Current University }\\
+	 \href{mailto:me@address.edu}{me@address.edu} &  \href{https://arts-sciences.buffalo.edu/geology/faculty-staff/faculty/kristin-poinar}{Department of Earth Sciences} \\
+(716) 645-0000  &  City, State Zipcode \\
+	\href{http://ubwp.buffalo.edu/glaciermodelinglab}{ubwp.buffalo.edu/glaciermodelinglab} & 	\href{https://github.com/kpoinar}{github.com/kpoinar} \\
+
+
+	\end{tabular*}
+\\
+\vspace{0.1in}}
+
+% CHANGE HEADER SOURCE HERE
+\mywebheader
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Education}
+
+\vspace{0.25cm}
+\bgroup
+\def\arraystretch{1.2}  % enhance column spacing from 1.0 default
+\begin{tabular*}{6.90in}{l l@{\extracolsep{\fill}} r}
+{\textbf{Ph.D.} in Geophysics~~~~~~~} & {University of Wherever, City and State, Country} & \textit{1899} \\
+{\textbf{B.S.} in Physics~~~~~~~~ } & {Somewhere University, City and State, Country} & \textit{1892}	 \\
+\end{tabular*}
+\vspace{0.25cm}
+\egroup
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Professional Experience}%Employment}
+	\begin{description}
+	
+	\item       \ressubheading{Associate Professor}{{My Current University }}{Department of Greatness}{\textit{2025--present}}
+	
+			\item       \ressubheading{Assistant Professor}{{My Current University}}{Department of Greatness }{\textit{2018--2025}}
+			
+		\item		\ressubheading{Postdoctoral Fellow}{{NASA Research Center}}{Research topic: Boiling water; Advisor: Sam Nova}{\textit{2016--2018}}
+		
+		 \item 	\ressubheading{Research Assistant}{University of Wherever}{Research topic: Evaporating water; Advisor: Jan Iaccomini}{2000--2015}		 
+
+	\end{description} % End Employment list
+
+\vspace{0.1cm}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\resheading{Publications  \hspace{0.1cm}  \footnotesize{(\textit{also on \href{http://scholar.google.com}{\underline{Google~Scholar}})    \hspace{0.1cm} \footnotesize($^*$grad student advisee, $^{**}$undergrad advisee, $^\dagger$postdoc advisee)}}}
+
+
+ 
+\begin{enumerate}
+
+\item Author list.  ``Publication title''.  \textit{Journal of Great Findings}, 128(7).  \href{https://doi.org/10.1029/2022JF006901}{10.1029/2022JF006901}.
+
+\item Author list.  ``Publication title''.  \textit{Journal of Great Findings}, 128(7).  \href{https://doi.org/10.1029/2022JF006901}{10.1029/2022JF006901}.
+
+\item Author list.  ``Publication title''.  \textit{Journal of Great Findings}, 128(7).  \href{https://doi.org/10.1029/2022JF006901}{10.1029/2022JF006901}.
+
+\end{enumerate}
+
+
+
+
+
+\resheading{\small{\hspace{0.2in}Non-peer-reviewed academic contributions}} 
+ 
+ \begin{description}
+
+	\item  Author list.  ``Publication title''. A white paper drafted for the U.S. Ice Drilling Program.
+	\item  Author list.  ``Publication title''. A conference paper for the Conference of Snails.
+
+\end{description}
+
+
+
+%%%%%%%%% Submitted %%%%%%
+
+\vspace{-4pt}
+
+ \resheading{\small{\hspace{0.2in}Publications submitted or in review   { \hspace{1cm} \textit{\footnotesize($^*$graduate student advisee, $^\dagger$postdoctoral advisee)}}}}
+
+\begin{description}
+
+
+\item Author list.  ``Publication title''.  \textit{Journal of Great Findings}, 128(7).  \href{https://doi.org/10.1029/2022JF006901}{10.1029/2022JF006901}.
+
+
+\end{description}
+
+
+
+%%%%%%%%% In Prep %%%%%%
+
+\vspace{-4pt}
+\resheading{\small{\hspace{0.2in}Publications in preparation \hspace{2.65cm} {\textit{\footnotesize($^*$graduate student advisee, $^\dagger$postdoctoral advisee)}}}}
+
+\begin{description}
+
+
+\item Author list. ``Publication tentative title'' in preparation for \textit{Journal of Great Findings}.
+
+\end{description}
+
+
+%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Research Funding}
+
+\vspace{2mm}
+
+
+
+\resheading{\small{\hspace{0.2in}Pending Research Funding}}
+ 
+\begin{description}
+
+	\item \textbf{Proposal title line 1 if needed }
+		\vspace{-10pt}	
+	\item \ressubheading{Proposal title line 2}{National Science Foundation}{\$500,000 project budget}{(requested for 2025--2030)} 
+
+	\vspace{-6pt}	
+		\item \hspace{0.5cm} \textit{\$500,000 requested by My Current University: Ny Name (PI), Collaborator's Name (Co-I)} \hspace{2.2cm}  \textit{Submitted July 2024}		\vspace{-6pt}
+
+		
+\end{description}
+
+
+
+\vspace{-2mm}
+
+\resheading{\small{\hspace{0.2in}Awarded Research Funding}}
+
+
+	\begin{description}	
+	
+	%HSF 2
+	\item \textbf{Proposal title line 1 if needed}
+		\vspace{-10pt}	
+	\item \ressubheading{Proposal title line 2}{National Science Foundation}{\$1,500,000 total project budget}{2025--2028} 
+	
+		\vspace{-6pt}	
+		\item \hspace{0.5cm} \textit{\$700,000 to My Current University: Ny Name (PI)}
+		
+		\vspace{-7pt}	
+		\item \hspace{0.5cm} \textit{\$400,000 to Their College: His Name (Co-I)}
+
+		\vspace{-7pt}	
+		\item \hspace{0.5cm}  \textit{\$400,000 to Their University: Her Name (Co-I)}
+	
+	
+	\vspace{1mm}
+	
+	
+		
+			
+	\end{description} % end funding
+	
+	
+	
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{University Teaching}
+%\vspace{5pt}
+%\textit{This section lists post-secondary teaching.  Experience with younger students is in ``Service and Outreach''.}
+
+\vspace{-5pt}
+
+\bgroup
+\def\arraystretch{1.2}  % enhance column spacing from 1.0 default
+
+\vspace{10pt}
+\begin{tabular*}{6.90in}{l @{\extracolsep{\fill}} l r}
+
+%& & & \\
+
+
+\textbf{~My Current University} & & \\
+\vspace{-2pt}
+~~~~GLY 102  & Course Title &  1899, 1900, 1904 \\
+\vspace{-2pt}
+ ~~~~GLY 325  & Course Title ~~~& 1905 \\
+ \vspace{-2pt}
+~~~~GLY 312  & Course Title ~~~& 1901 \\
+ \vspace{-2pt}
+ ~~~~GLY 447/547 & Course Title ~~~&1902, 1903 \\
+		  
+		  
+\textbf{~University of Wherever} & & \\
+
+~~~~ESS 431 & Principles of Glaciology  & 1894--1896 \\
+
+
+\end{tabular*}
+\egroup
+
+ % end Teaching
+
+
+
+
+
+\vspace{6pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Student \& Postdoc Advising}
+
+	
+\vspace{-5pt}
+\begin{description}
+
+%\vspace{-2pt}
+\item \textbf{PhD thesis advisor}
+\vspace{-4pt}
+\begin{enumerate}	
+	\item \textbf{Namib Kora} (expected 2026): ``Thesis Title or Topic'' 
+	\item \textbf{Casha Sharma} (expected 2029): ``Thesis Title or Topic'' 	
+\end{enumerate}
+	
+
+
+
+\item \textbf{MS thesis advisor} 
+\begin{enumerate}
+\setcounter{enumi}{2}
+	
+	\item \textbf{Jaws Shark} (2020): ``Thesis Title'' 
+		(\href{https://www.proquest.com/docview/2424045217/}{MS thesis at ProQuest}). \textit{Now a Professional Geologist at Parsons Corporation, NY.}
+	
+\end{enumerate}
+
+
+\vspace{-2pt}
+\item \textbf{Postdoctoral advisor} 
+\begin{enumerate}
+\setcounter{enumi}{3}
+	\vspace{-4pt}
+		\item \textbf{Jazzy Mango} (2021--2024): Research Topic.  \textit{Now an Assistant Prof. at Synecdoche Univ.}
+\end{enumerate}
+
+
+
+\vspace{-2pt}
+
+\item \textbf{Undergraduate thesis supervisor} 
+\begin{enumerate}
+\setcounter{enumi}{4}
+	\vspace{-4pt}
+	\item \textbf{Evelyn Case} (2022): ``Thesis Title''. \textit{Now a PhD student at University of Arizona.}
+\end{enumerate}
+
+\vspace{-2pt}
+\item \textbf{Undergraduate research supervisor} 
+\begin{enumerate}
+\setcounter{enumi}{9}
+	\vspace{-4pt}
+	\item Hora Azbo (BS 2022), Research Topic
+\end{enumerate}
+
+
+    
+    
+    
+\end{description}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\resheading{Higher-Profile Public Speaking}
+
+\begin{description}
+
+	\item \ressubheading{Conference Series or Venue}{City, State}{``Talk Title''}{October 1899}
+
+	\item \ressubheading{Conference Series or Venue}{City, State}{``Talk Title''}{June 1900}
+
+
+\end{description}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Invited Academic Speaking}
+
+\begin{description}
+
+	\item \textbf{University or Venue}, City and State, short description of the event, ``Talk Title'' (Sept. 1896)
+
+\end{description}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Professional Service}
+
+\begin{description}
+	
+	\item \ressubheading{Scientific Editor}{{The Journal}}{Description and url of the journal, impact factor 41.4}{1905--present}
+	
+	\item \ressubheading{Conference session chair}{Alpine Glaciology Meeting}
+	{University of Minezabo)}{March 1907}
+		
+\end{description} % end Professional/Scientific Service
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\resheading{University Service}
+\begin{description}
+	
+	\item \ressubheading{Service Role}{My Current University}{Short description of the role}{1902--present}
+
+\end{description} 
+% end University/Department Service
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\resheading{Community Service}
+\begin{description}
+	
+	\item \ressubheading{Service Role}{Location}{Short description of the role}{September 1906}	
+
+\end{description} 
+% end Community Service
+
+
+
+
+
+
+\resheading{Conference Presentations  {\textit{ \footnotesize($^\dagger$postdoc advisee, $^*$graduate student advisee, $^{**}$undergrad student advisee)}}} 
+
+
+\begin{description}
+		\item \textit{{2024 AGU Annual Meeting} (Washington DC)}: 
+		\vspace{-10pt}
+		
+		\begin{enumerate} 	
+		
+		\item  Author list.  ``Presentation title''.   (poster)
+		
+		\item  Author list.  ``Presentation title''.   (poster)
+		
+		
+		\end{enumerate}
+
+\end{description}
+
+	
+\begin{description}
+		\item \textit{{2023 AGU Fall Meeting} (San Francisco)}: 
+		\vspace{-10pt}
+		
+		\begin{enumerate} 	
+		\setcounter{enumi}{2} 	
+		
+		\item Author list.  ``Presentation title''.   (invited talk)
+		
+		\item  Author list.  ``Presentation title''.  (invited talk)
+		
+		\end{enumerate}
+		
+		
+	\item \textit{Other conferences}:
+		\vspace{-10pt}
+		
+		\begin{enumerate}	
+		\setcounter{enumi}{4} 
+			
+		\item  Author list.  ``Presentation title'', Conference name, venue, month and year. (poster)
+		
+		\item Author list.  ``Presentation title'', Conference name, venue, month and year.  (talk)
+		
+
+		\end{enumerate}
+
+	\end{description}
+	
+
+
+
+
+
+
+
+%\newpage
+\resheading{About the Design}
+
+\vspace{10pt} 
+
+This CV is created from a~\href{https://web.archive.org/web/20180727051638/http://www.derekhildreth.com/portfolio/Resume/Derek_Hildreth_Resume.tex}{\LaTeX~template} by \href{https://web.archive.org/web/20180727051638/http://www.thelinuxdaily.com/2008/10/latex-resume-examples/}{M. Boedicker}, modified by \href{http://www.derekhildreth.com}{D.~Hildreth} and \href{https://github.com/kpoinar}{K.~Poinar} under the Creative Commons Attribution -- NonCommercial -- ShareAlike (CC~BY-NC-SA) License.
+
+
+
+\end{document}
+
+
+
+
